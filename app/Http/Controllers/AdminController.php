@@ -32,7 +32,8 @@ class AdminController extends Controller
         User::create([
             'email' => $request->email,
             'name' => $request->name,
-            'password' => Hash::make($random)
+            'password' => Hash::make($random),
+            'user_id' => auth()->user()->id
         ]);
 
         $mails = new Mails();
